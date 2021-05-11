@@ -26,6 +26,9 @@ body {
 
 .pizza-element {
   margin: 2em 0.5em;
+  border-color: rgb(167, 158, 158);
+  border-right-width: 0.2px;
+  border-right-style: solid;
   display: flex;
   justify-content: baseline;
   align-items: center;
