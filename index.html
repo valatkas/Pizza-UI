@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" src="./js/main.js"></script>
+    <script type="module" src="./js/modules/handlers.js"></script>
+    <script type="module" src="./js/modules/adders.js"></script>
+    <script type="module" src="./js/modules/sessionStorage.js"></script>
+    <script type="module" src="./js/modules/sort.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="./styles/main.css" />
+
+    <title>Pizza UI</title>
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="pizza-form">
+        <span class="form-header">Add a new pizza</span>
+        <span class="input-header">Name</span>
+        <input
+          id="pizza-name"
+          class="input-box"
+          placeholder="Enter the name of the pizza"
+          type="text"
+        />
+
+        <span class="input-header">Price</span>
+        <input
+          id="pizza-price"
+          step="0.01"
+          type="number"
+          class="input-box"
+          placeholder="Enter the price of the pizza"
+        />
+
+        <span class="input-header">Spiciness</span>
+        <select type="number" id="heat-select" class="heat-select">
+          <option selected value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+        <span class="input-header">Toppings</span>
+        <div class="topping-images">
+          <img id="cheese" class="topping-img" src="img/toppings/cheese.svg" />
+          <img
+            id="paprika"
+            class="topping-img"
+            src="img/toppings/paprika.svg"
+          />
+          <img
+            id="anchovy"
+            class="topping-img"
+            src="img/toppings/anchovy.svg"
+          />
+          <img id="salami" class="topping-img" src="img/toppings/salami.svg" />
+          <img
+            id="mushroom"
+            class="topping-img"
+            src="img/toppings/mushroom.svg"
+          />
+          <img id="tomato" class="topping-img" src="img/toppings/tomato.svg" />
+        </div>
+
+        <span class="input-header">Picture</span>
+        <div class="pizza-images">
+          <img
+            draggable="false"
+            id="1"
+            class="select-image"
+            src="img/pizza1.png"
+          />
+          <img
+            draggable="false"
+            id="2"
+            class="select-image"
+            src="img/pizza2.png"
+          />
+          <img
+            draggable="false"
+            id="3"
+            class="select-image"
+            src="img/pizza3.png"
+          />
+          <img
+            draggable="false"
+            id="4"
+            class="select-image"
+            src="img/pizza4.png"
+          />
+          <img
+            draggable="false"
+            id="5"
+            class="select-image"
+            src="img/pizza5.png"
+          />
+          <img
+            draggable="false"
+            id="6"
+            class="select-image"
+            src="img/pizza6.png"
+          />
+        </div>
+
+        <input
+          type="button"
+          id="add-pizza"
+          class="add-pizza"
+          value="ADD PIZZA"
+        />
+      </div>
+      <div class="sortby">
+        <select id="sort-by" class="sort-by">
+          <option selected value="0">Sort by</option>
+          <option id="name" value="name">Name</option>
+          <option id="heat" value="spiciness">Spiciness</option>
+          <option id="price" value="price">Price</option>
+        </select>
+      </div>
+      <div id="pizza-display" class="pizza-display"></div>
+    </div>
+  </body>
+</html>

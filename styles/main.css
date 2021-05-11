@@ -1,0 +1,330 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+body {
+  background: linear-gradient(135deg, #71b7e6, #9b59b6);
+  height: 0vh;
+  margin: 0;
+  padding: 0;
+  color: white;
+  font-family: "Roboto", sans-serif;
+}
+
+.main-container {
+  display: flex;
+  justify-content: flex-start;
+  margin: 1em;
+}
+
+.pizza-display {
+  position: absolute;
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  max-width: 62%;
+  right: 0px;
+}
+
+.pizza-element {
+  margin: 2em 0.5em;
+  display: flex;
+  justify-content: baseline;
+  align-items: center;
+  flex-direction: column;
+  animation: 0.5s linear appear;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0%;
+  }
+
+  to {
+    opacity: 100%;
+  }
+}
+
+.deleted {
+  animation: 0.2s linear delete;
+}
+
+@keyframes delete {
+  from {
+    opacity: 100%;
+  }
+
+  to {
+    opacity: 0%;
+    transform: translateY(-300px);
+  }
+}
+
+.pizza-form {
+  margin-top: 3em;
+  position: absolute;
+  padding: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 30%;
+  background-color: white;
+  border-radius: 5px;
+}
+.form-header {
+  font-size: 25px;
+  font-weight: 500;
+  position: relative;
+  color: #474343;
+  margin-bottom: 1em;
+}
+.form-header::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 30px;
+  border-radius: 5px;
+  background: linear-gradient(135deg, #71b7e6, #9b59b6);
+}
+.input-header {
+  margin-bottom: 0.8em;
+  color: #474343;
+  display: block;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.sort-by {
+  margin-bottom: 0.5em;
+  padding: 0.5em 0em;
+  text-align: center;
+  font-size: 15px;
+  border-style: solid;
+  border: 1px solid #ccc;
+  border-bottom-width: 2px;
+  border-radius: 5px;
+}
+.sort-by:selected {
+  opacity: 50%;
+}
+.input-box,
+.heat-select {
+  margin-bottom: 0.5em;
+  padding: 0.8em 0em;
+  text-align: center;
+  font-size: 15px;
+  border-style: solid;
+  border: 1px solid #ccc;
+  border-bottom-width: 2px;
+  border-radius: 5px;
+  width: calc(100% / 2 - 20px);
+}
+
+.select-image {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  width: 15%;
+  height: auto;
+  cursor: pointer;
+  transition: 0.5s;
+  opacity: 50%;
+}
+
+.imageselected {
+  opacity: 100%;
+}
+.select-image:hover {
+  transition: 0.5s;
+  width: 18%;
+}
+
+.add-pizza {
+  margin-top: 1em;
+  padding: 1em 5em;
+  text-align: center;
+  background-color: #2a272b;
+  border-radius: 5px;
+  color: white;
+  letter-spacing: 1px;
+  cursor: pointer;
+  font-size: 18px;
+  border-style: none;
+  width: 60%;
+  transition: 0.5s;
+}
+
+.add-pizza:hover {
+  background-color: #2366aa;
+  transition: 0.5s;
+}
+
+.topping-images {
+  margin: 0.5em 0 1em 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex;
+}
+
+.topping-img {
+  margin-right: 1em;
+  width: 6%;
+  height: auto;
+  cursor: pointer;
+  transition: 0.2s;
+  opacity: 50%;
+}
+
+.toppingselected {
+  opacity: 100%;
+}
+
+.topping-img:hover {
+  transition: 0.2s;
+  width: 8%;
+  opacity: 100%;
+}
+.pizza-images {
+  margin: 1em 0 2em 2em;
+}
+
+.delete-button {
+  position: absolute;
+  margin-top: 21em;
+  padding: 0.5em;
+  border-style: none;
+  color: #fff;
+  background-color: #c0392b;
+  cursor: pointer;
+  transition: 0.3s;
+  cursor: pointer;
+  font-size: 15px;
+  border-style: none;
+  transition: 0.5s;
+  border-radius: 5px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
+}
+
+.delete-button:hover {
+  background-color: rgb(223, 58, 58);
+  transition: 0.3s;
+}
+
+.pizza-image {
+  margin-bottom: 1.5em;
+  width: 300px;
+  height: auto;
+}
+
+.heat {
+  margin: 0 0 0.2em 0.2em;
+  width: 10px;
+  height: auto;
+  cursor: pointer;
+}
+
+.pizza-name {
+  margin-bottom: 0.4em;
+  font-size: 20px;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.pizza-price {
+  margin-bottom: 0.4em;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.pizza-toppings {
+  margin-bottom: 0.4em;
+  text-align: center;
+  max-width: 60%;
+  color: rgb(218, 209, 209);
+  font-size: 12px;
+}
+
+@media only screen and (max-width: 1189px) {
+  .pizza-form {
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 887px) {
+  .pizza-form {
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 1547px) {
+  .pizza-image {
+    width: 200px;
+  }
+  .delete-button {
+    position: absolute;
+    margin-top: 17em;
+  }
+  .pizza-form {
+    width: 40%;
+  }
+}
+
+@media only screen and (max-width: 1118px) {
+  .main-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .sortby {
+    flex: 1;
+    margin-top: 0.5em;
+  }
+  .pizza-form {
+    width: 60%;
+
+    position: relative;
+  }
+  .pizza-display {
+    position: relative;
+    max-width: 100%;
+  }
+}
+
+@media only screen and (max-width: 775px) {
+  .pizza-form {
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 697px) {
+  .pizza-image {
+    width: 150px;
+  }
+  .delete-button {
+    margin-top: 15em;
+  }
+}
+
+@media only screen and (max-width: 588px) {
+  .pizza-form {
+    width: 100%;
+    border-radius: 0;
+  }
+  .input-box,
+  .heat-select {
+    width: 100%;
+  }
+  .pizza-element {
+    margin: 2em 1.5em;
+  }
+  .delete-button {
+    margin-top: 14.5em;
+  }
+  .sort-by {
+    width: 50vh;
+  }
+}
