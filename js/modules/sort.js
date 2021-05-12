@@ -3,8 +3,10 @@ import { handleDisplay } from "./handlers.js";
 import { pizzaArr } from "./sessionStorage.js";
 
 export var doSort = {
-  //SORT BY NAME
+  // SORTING FUNCTIONS
+
   sortByName: function (a, b) {
+    // SORT BY NAME(ASCENDING/DESCENDING)
     if (values.sortOrder[0]) {
       if (a.name < b.name) return -1;
       if (a.name > b.name) return 1;
@@ -16,8 +18,8 @@ export var doSort = {
     }
   },
 
-  // SORT BY PRICE
   sortByPrice: function (a, b) {
+    // SORT BY PRICE(ASCENDING/DESCENDING)
     if (values.sortOrder[1]) {
       if (a.price < b.price) return -1;
       if (a.price > b.price) return 1;
@@ -29,8 +31,8 @@ export var doSort = {
     }
   },
 
-  // SORT BY SPICINESS
   sortByHeat: function (a, b) {
+    // SORT BY SPICINESS(ASCENDING/DESCENDING)
     if (values.sortOrder[2]) {
       if (a.heat < b.heat) return -1;
       if (a.heat > b.heat) return 1;
@@ -44,8 +46,7 @@ export var doSort = {
 };
 
 export function handleSort(e) {
-  // LISTEN FOR SORT REQUESTS AND HANDLE THEM
-
+  // LISTEN FOR SORT SELECTION BOX
   switch (e.target.value) {
     case "name":
       values.sortOrder[0] = !values.sortOrder[0];
@@ -62,6 +63,5 @@ export function handleSort(e) {
       pizzaArr.sort(doSort.sortByHeat);
       break;
   }
-  console.log(values.sortOrder);
-  handleDisplay();
+  handleDisplay(); // UPDATE DISPLAY
 }

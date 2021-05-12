@@ -4,32 +4,34 @@ import { pizzaArr } from "./sessionStorage.js";
 let pizzaArray;
 
 export function handleDisplay() {
-  values.displayBox.innerHTML = ``;
-  // CREATE AND DISPLAY PIZZA OBJECTS
+  // UPDATES WINDOW DISPLAY
+
+  values.displayBox.innerHTML = ``; // CLEAR PIZZA DISPLAY BOX.
+
   pizzaArr.forEach((pizza) => {
+    // ITERATE TROUGH PIZZA ARRAY AND GET OBJECTS
+
     let heat = "";
 
-    // DISPLAY CHILI ICONS ACCORDING TO SPICINESS
     for (let i = 0; i < pizza.heat; i++) {
+      // DISPLAY CHILI ICONS ACCORDING TO SPICINESS
       heat += `<img id="heat" class="heat" src="./img/chili.svg">`;
     }
 
     var pizzaDisplay = document.createElement("div");
+    // CREATE PIZZA OBJECT DIV
     pizzaDisplay.setAttribute("id", pizza.name);
     pizzaDisplay.setAttribute("class", "pizza-element");
     pizzaDisplay.innerHTML = `
       <img src="${pizza.img}" class="pizza-image">
-      <div id="name" class="pizza-name">${pizza.name.toUpperCase()}
-      ${heat}
-      </div>
+      <div id="name" class="pizza-name">${pizza.name.toUpperCase()}${heat}</div>
       <div id="price" class="pizza-price">${pizza.price}€</div>
       <div class="pizza-toppings">${pizza.toppings.join(", ")}</div>
-      <input id="delete-button" type="button" value="REMOVE" class="delete-button">
-      `;
+      <input id="delete-button" type="button" value="REMOVE" class="delete-button">`;
 
-    values.displayBox.appendChild(pizzaDisplay);
+    values.displayBox.appendChild(pizzaDisplay); // ADD THE NEW DIV TO THE PIZZA DISPLAY
 
-    // ASSIGN EVENT LISTENERS(DELETE BUTTON, SPICINESS, NAME, PRICE)
+    // ASSIGN EVENT LISTENER TO DELETE BUTTONS
 
     document.querySelectorAll(".delete-button").forEach((item) => {
       item.addEventListener("click", handleDelete);
@@ -50,7 +52,7 @@ export var handleImageSelect = {
         1
       );
     } else {
-      // PUSH TOPPING TO TEMPORARY ARRAY TO STORE
+      // PUSH TOPPING TO TEMPORARY ARRAY FOR STORAGE
       topping.classList.add("toppingselected");
       values.selectedToppings.push(this.id);
     }
@@ -59,6 +61,7 @@ export var handleImageSelect = {
   handlePizzaImage: function () {
     // HANDLE PIZZA IMAGE SELECTION
     let image = document.getElementById(this.id);
+
     if (image.classList.contains("imageselected")) {
       image.classList.remove("imageselected");
       values.image = null;
@@ -75,20 +78,21 @@ export function handleDelete(e) {
   const pizzaIndex = pizzaRow.id;
 
   var confirmDelete = confirm("Are you sure you want to delete this pizza?");
-  if (confirmDelete == true) {
+  if (confirmDelete === true) {
+    // CONFIRMATION UPON PIZZA REMOVAl
     if (sessionStorage.getItem("pizzaArray") === null) {
       pizzaArray = [];
     } else {
       pizzaArray = JSON.parse(sessionStorage.getItem("pizzaArray"));
     }
-    pizzaArray.splice(pizzaArray.indexOf(pizzaIndex), 1);
-    pizzaArr.splice(pizzaArr.indexOf(pizzaIndex), 1);
+    pizzaArray.splice(pizzaArray.indexOf(pizzaIndex), 1); // REMOVES PIZZA FROM SESSION STORAGE ARRAY
+    pizzaArr.splice(pizzaArr.indexOf(pizzaIndex), 1); // REMOVES PIZZA FROM LOCAL ARRAY
     sessionStorage.setItem("pizzaArray", JSON.stringify(pizzaArray));
 
-    pizzaRow.className = "deleted";
+    pizzaRow.className = "deleted"; // RUN DELETE ANIMATION
     setTimeout(function () {
       pizzaRow.remove();
-    }, 200);
+    }, 100);
   } else {
   }
 }

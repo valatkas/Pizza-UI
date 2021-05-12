@@ -21,19 +21,17 @@ export var values = {
 
     // ASSIGN EVENT LISTENERS
     document.getElementById("add-pizza").addEventListener("click", addPizza);
+
     values.toppingBox.forEach((topping) => {
       document
         .getElementById(topping)
-        .addEventListener("click", handleImageSelect.handleToppings);
+        .addEventListener("click", handleImageSelect.handleToppings); // FOR SELECTING TOPPINGS
     });
 
-    document.getElementById("sort-by").addEventListener("change", handleSort);
-
-    // ADD EVENT LISTENERS TO IMAGES
     for (let i = 1; i < 7; i++) {
       document
         .getElementById(i)
-        .addEventListener("click", handleImageSelect.handlePizzaImage);
+        .addEventListener("click", handleImageSelect.handlePizzaImage); // FOR SELECTING PIZZA IMAGE
     }
 
     // UPDATE DISPLAY AND CALL SESSION STORAGE

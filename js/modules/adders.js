@@ -4,6 +4,7 @@ import { addToSessionStorage, getSessionStorage } from "./sessionStorage.js";
 import { pizzaArr } from "./sessionStorage.js";
 
 export function addPizza(e) {
+  // ADD A NEW PIZZA
   e.preventDefault();
 
   // GET INPUT BOX VALUES
@@ -13,18 +14,19 @@ export function addPizza(e) {
   const toppings = values.selectedToppings;
   const img = values.image;
 
+  // VARIABLE TO CHECK IF PIZZA NAME ALREADY EXISTS
   var nameExists = false;
 
-  // CHECKS IF NAME ALREADY EXISTS
   if (sessionStorage.getItem("pizzaArray") === null) {
+    // CHECKS IF PIZZA NAME ALREADY EXISTS
   } else {
     var nameExists = pizzaArr.find(function (item) {
       return item.name === name;
     });
   }
 
-  // CREATE PIZZA OBJECT
   if (name === "" || price === "" || toppings === "" || img === null) {
+    // MANDATORY INPUT FIELD CHECKS
     alert("Input fields cannot be empty!");
   } else {
     if (name.length > 30) {
@@ -36,6 +38,7 @@ export function addPizza(e) {
     } else if (nameExists) {
       alert("Pizza name must be unique!");
     } else {
+      // CREATE PIZZA OBJECT
       const object = {
         name: name,
         price: Math.round(price * 100) / 100,
@@ -43,10 +46,8 @@ export function addPizza(e) {
         toppings: toppings,
         img: img,
       };
-      addToSessionStorage(object);
-      clearForm();
-      getSessionStorage();
-      handleDisplay();
+      addToSessionStorage(object); // ADD TO SESSION STORAGE
+      clearForm(); // CLEAR FORM INPUTS
     }
   }
 }
